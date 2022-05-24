@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function CoinTable() {
   return (
-    <Box>
+    <Box sx={{justifyContent:"center", alignItems:"center", display:"flex"}}>
         CoinTable
     </Box>
   )
