@@ -13,8 +13,14 @@ const theme = createTheme({
   typography: {
     myVariant: {
       color: "#cccccc"
+    },
+    lightVariant:{
+      color:"#abb4db",
+      fontSize:"18px",
+      fontWeight:"600",
+      fontFamily:"montserrat"
     }
-  }
+  },
 });
 
 
