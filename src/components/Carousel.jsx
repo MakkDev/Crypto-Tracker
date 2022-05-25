@@ -1,8 +1,7 @@
-import { Box, Container, Stack, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { numberWithCommas } from './SingleToken';
 import AliceCarousel from 'react-alice-carousel';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Carousel() {
     
@@ -30,7 +29,7 @@ export default function Carousel() {
           src={coin?.image}
           alt={coin.name}
           height="120"
-          style={{ marginBottom: 10, }}
+          style={{ marginBottom: 10, filter: "drop-shadow(0 0 0.2rem black)" }}
         />
         <span style={{marginBottom: 8, textTransform:"uppercase",color:"white"}}>
           {coin?.symbol}

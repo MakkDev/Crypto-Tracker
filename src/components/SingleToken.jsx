@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, IconButton, MenuItem, Paper, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Button, Container, IconButton, MenuItem, Paper, styled, Toolbar, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useParams } from 'react-router-dom';
@@ -25,15 +25,25 @@ export default function SingleToken() {
 
   })
 
-
+  const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText('#CCC'),
+    backgroundColor:"#abb4db", color:"#7b3a8a", fontFamily: "Montserrat", fontWeight: "400",
+    '&:hover': {
+      backgroundColor:"#7b3a8a", color:"#abb4db", borderColor:"#abb4db",
+    },
+  }));
+  
   return (
     apiResults.map(({ id, name, symbol, image, current_price, price_change_percentage_24h, market_cap_rank, market_cap, }) => (
         
-        <Container sx={{ display: "flex", alignItems: "center", justifyContent: "center", }}>
+        <Container sx={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection:"column" }}>
+          <Button href="/" sx={{fontSize:"larger", mb:"-10%", mt:"5%",backgroundColor:"#7b3a8a", color:"#abb4db", borderColor:"#7b3a8a", fontFamily: "Montserrat", fontWeight: "400", '&:hover': {
+          backgroundColor:"#abb4db", color:"#7b3a8a", borderColor:"#7b3a8a"}}} variant="contained"> 
+          Back To The HomePage? </Button>
           <Paper sx={{  alignItems: "center", justifyContent: "center", width: "40%", height: "50%", p: "25px", mt: "18%", borderRadius: "20px", display: "flex", flexDirection: "column", backgroundImage: 'url("https://i.ibb.co/vQYVMnK/blue-Sky-Background.jpg")', "&:hover" : { backgroundImage: 'url("https://i.ibb.co/CPkYQ5c/brightblue-Sky-Background.jpg")' , filter: "drop-shadow(0 0 3rem white)" }}}>
-            <Typography variant="myVariant" sx={{ fontSize: "40px", mb: "3px", fontWeight: "bold" }}>{name}</Typography>
-            <Typography variant="myVariant" sx={{ fontSize: "17px", mb: "4px", textTransform: "uppercase" }}>({symbol})</Typography>
-            <Typography variant='myVariant' sx={{ fontSize: "30px", mb: "-3px" }}>#{market_cap_rank} </Typography>
+            <Typography align="center" variant="myVariant" sx={{ fontSize: "40px", mb: "3px", fontWeight: "bold" }}>{name}</Typography>
+            <Typography align="center" variant="myVariant" sx={{ fontSize: "17px", mb: "4px", textTransform: "uppercase" }}>({symbol})</Typography>
+            <Typography align="center" variant='myVariant' sx={{ fontSize: "30px", mb: "-3px" }}>#{market_cap_rank} </Typography>
             <img style={{ margin: "10px" }} src={image} />
             <span style={{ marginBottom:"3px" }}>
                 <Typography variant='myVariant' sx={{ fontSize: "30px", fontWeight: "bold" }}>Price: </Typography>
@@ -46,11 +56,10 @@ export default function SingleToken() {
                 <Typography variant="myVariant" sx={{ color: price_change_percentage_24h > 0 ? "rgb(14, 203, 60)" : "red", fontSize: "25px", fontWeight: "700" }}> {price_change_percentage_24h > 0 ? "+" : ""}{price_change_percentage_24h.toString().slice(0, -3)}%</Typography>
             </span>
             <span style={{ marginBottom:"3px" }}>
-                <Typography variant='myVariant' sx={{ fontSize: "30px", fontWeight: "bold" }}>Market Cap:</Typography>
+                <Typography align="center" variant='myVariant' sx={{ fontSize: "30px", fontWeight: "bold" }}>Market Cap:</Typography>
                 &nbsp; &nbsp;
-                <Typography variant='myVariant' sx={{ fontSize: "25px", }}>${numberWithCommas(market_cap.toString().slice(0, -6))}M</Typography>
+                <Typography align="center" variant='myVariant' sx={{ fontSize: "25px", }}>${numberWithCommas(market_cap.toString().slice(0, -6))}M</Typography>
             </span>
-            <Link to={`/`}> Get Back To HomePage!!</Link>
           </Paper>
         </Container>
     ))

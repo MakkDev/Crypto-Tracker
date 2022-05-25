@@ -24,7 +24,7 @@ export default function CoinTable() {
         <TableContainer sx={{ justifyContent: "center", alignItems: "center", display: "flex", }}>
             <Table >
                 <TableHead sx={{ display: "flex", justifyContent: "center", alignItems: "center", }}>
-                    <TableRow sx={{ display: "flex", borderRadius: "10px", backgroundColor: "#7b3a8a", width:"100%", p:"1%" }}>
+                    <TableRow sx={{ display: "flex", borderRadius: "10px", backgroundColor: "#7b3a8a", width:"100%", p:"1%", alignItems:"center" }}>
                         <TableCell sx={{ borderBottom: "none", flex: "1.55", color: "#abb4db", fontSize: "22px", fontWeight: "600", fontFamily: "montserrat" }}>  Coin</TableCell>
                         <TableCell align="left" sx={{ borderBottom: "none", flex: "1.5", color: "#abb4db", fontSize: "22px", fontWeight: "600", fontFamily: "montserrat" }}> Rank</TableCell>
                         <TableCell align="center" sx={{ borderBottom: "none", flex: "1.3", color: "#abb4db", fontSize: "22px", fontWeight: "600", fontFamily: "montserrat" }}> Price</TableCell>
@@ -36,13 +36,13 @@ export default function CoinTable() {
                     {coins.map((coin) => (
                         <TableRow onClick={()=> navigate(`/tokenInfo/${coin.id}`)} sx={{display:"flex", justifyContent:"center", width:"100%", "&:hover": {cursor:"pointer"}}}>
                             <TableCell  sx={{display:"flex", alignItems:"center", flex: "1.55"}} >
-                                <img style={{ width: "20%", marginRight:"2%", marginLeft:"-5px" }} src={coin.image} />
+                                <img style={{ width: "25%", marginRight:"2%", marginLeft:"-5px", filter: "drop-shadow(0 0 0.1rem black)" }} src={coin.image} />
                                 <span>
-                                    <Typography sx={{textTransform:"uppercase", fontFamily:"montserrat", fontWeight:"600", fontSize: "20px"}}> {coin.symbol} </Typography>
+                                    <Typography sx={{textTransform:"uppercase", fontFamily:"montserrat", fontWeight:"600", fontSize: "22px"}}> {coin.symbol} </Typography>
                                     <Typography sx={{fontFamily:"montserrat", fontWeight:"400", fontSize: "20px"}}> {coin.name} </Typography>
                                 </span>
                             </TableCell>
-                            <TableCell align='left' sx={{flex: "1.5", fontFamily:"montserrat", fontWeight:"600", fontSize: "18px"}} >
+                            <TableCell align='left' sx={{flex: "1.5", fontFamily:"montserrat", fontWeight:"600", fontSize: "22px"}} >
                                 #{coin.market_cap_rank}</TableCell>
                             <TableCell align="center" sx={{flex: "1.3", fontFamily:"montserrat", fontWeight:"600", fontSize: "18px"}}> ${ coin.current_price < 1 ? coin.current_price.toString().slice(0,-3) :
                                 `${numberWithCommas(coin.current_price)}` } </TableCell>
