@@ -68,7 +68,9 @@ export default function CoinTable() {
                 </TableBody>
             </Table>
         </TableContainer>
-        <Pagination color="secondary" sx={{ display:"flex", justifyContent:"center",alignItems:"center", m:"2%"}} count={10} />
+        <Pagination onChange={(_, value) => {setPage(value); window.scroll(0, 450);}}
+         color="secondary" sx={{ display:"flex", justifyContent:"center",alignItems:"center", m:"2%"}} count={(handleSearch()?.length / 10).toFixed(0)}
+        />
         </Container>
     )
 }
