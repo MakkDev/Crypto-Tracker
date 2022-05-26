@@ -1,26 +1,39 @@
-import { Box, CardMedia, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import {Container, Box, CardMedia, Pagination, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { numberWithCommas } from './SingleToken';
 
 export default function CoinTable() {
 
-    const [coins, setCoins] = useState([]);
-    const [loading, setLoading] = useState(false);
     const axios = require("axios");
     let navigate = useNavigate();
 
-    async function test() {
+    const [coins, setCoins] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [page, setPage] = useState(1);
+    const [search, setSearch] = useState("")
+
+    async function getCoins() {
         const { data } = await axios.get(
             `https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false`
         );
         setCoins(data);
     }
     useEffect(() => {
-        test();
+        getCoins();
     })
 
+  const handleSearch = () => {
+    return coins.filter(
+      (coin) =>
+        coin.name.toLowerCase().includes(search) ||
+        coin.symbol.toLowerCase().includes(search)
+    );
+  };
+
     return (
+        <Container>
+            <TextField onChange={(e) => setSearch(e.target.value)} variant="outlined" sx={{width:"100%", mb:"20px"}} label="Search For Your Favorite Cryptocurrency!"/> 
         <TableContainer sx={{ justifyContent: "center", alignItems: "center", display: "flex", }}>
             <Table >
                 <TableHead sx={{ display: "flex", justifyContent: "center", alignItems: "center", }}>
@@ -33,7 +46,7 @@ export default function CoinTable() {
                     </TableRow>
                 </TableHead>
                 <TableBody >
-                    {coins.map((coin) => (
+                    {handleSearch().slice((page - 1) * 10, (page - 1) * 10 + 10).map((coin) => (
                         <TableRow onClick={()=> navigate(`/tokenInfo/${coin.id}`)} sx={{display:"flex", justifyContent:"center", width:"100%", "&:hover": {cursor:"pointer"}}}>
                             <TableCell  sx={{display:"flex", alignItems:"center", flex: "1.55"}} >
                                 <img style={{ width: "25%", marginRight:"2%", marginLeft:"-5px", filter: "drop-shadow(0 0 0.1rem black)" }} src={coin.image} />
@@ -55,6 +68,8 @@ export default function CoinTable() {
                 </TableBody>
             </Table>
         </TableContainer>
+        <Pagination color="secondary" sx={{ display:"flex", justifyContent:"center",alignItems:"center", m:"2%"}} count={10} />
+        </Container>
     )
 }
 
