@@ -33,6 +33,7 @@ export default function CoinTable() {
 
     return (
         <Container>
+    <Typography align="center" sx={{mb:"15px", display:"flex", color: "#7b3a8a", fontSize: "40px", fontWeight: "900", fontFamily: "Montserrat", justifyContent:'center', '&:hover': { cursor: "pointer" } }}>Cryptocurrency Prices by Market Cap</Typography>
             <TextField onChange={(e) => setSearch(e.target.value)} variant="outlined" sx={{width:"100%", mb:"20px"}} label="Search For Your Favorite Cryptocurrency!"/> 
         <TableContainer sx={{ justifyContent: "center", alignItems: "center", display: "flex", }}>
             <Table >
@@ -48,7 +49,7 @@ export default function CoinTable() {
                 <TableBody >
                     {handleSearch().slice((page - 1) * 10, (page - 1) * 10 + 10).map((coin) => (
                         <TableRow onClick={()=> navigate(`/tokenInfo/${coin.id}`)} sx={{display:"flex", justifyContent:"center", width:"100%", "&:hover": {cursor:"pointer"}}}>
-                            <TableCell  sx={{display:"flex", alignItems:"center", flex: "1.55"}} >
+                            <TableCell sx={{display:"flex", alignItems:"center", flex: "1.55"}} >
                                 <img style={{ width: "25%", marginRight:"2%", marginLeft:"-5px", filter: "drop-shadow(0 0 0.1rem black)" }} src={coin.image} />
                                 <span>
                                     <Typography sx={{textTransform:"uppercase", fontFamily:"montserrat", fontWeight:"600", fontSize: "22px"}}> {coin.symbol} </Typography>

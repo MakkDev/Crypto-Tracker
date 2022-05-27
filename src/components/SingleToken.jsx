@@ -40,15 +40,15 @@ export default function SingleToken() {
           <Button href="/" sx={{fontSize:"larger", mb:"-10%", mt:"5%",backgroundColor:"#7b3a8a", color:"#abb4db", borderColor:"#7b3a8a", fontFamily: "Montserrat", fontWeight: "400", '&:hover': {
           backgroundColor:"#abb4db", color:"#7b3a8a", borderColor:"#7b3a8a"}}} variant="contained"> 
           Back To The HomePage? </Button>
-          <Paper sx={{  alignItems: "center", justifyContent: "center", width: "40%", height: "50%", p: "25px", mt: "18%", borderRadius: "20px", display: "flex", flexDirection: "column", backgroundImage: 'url("https://i.ibb.co/vQYVMnK/blue-Sky-Background.jpg")', "&:hover" : { backgroundImage: 'url("https://i.ibb.co/CPkYQ5c/brightblue-Sky-Background.jpg")' , filter: "drop-shadow(0 0 3rem white)" }}}>
+          <Paper align="center" sx={{  alignItems: "center", justifyContent: "center", width: "40%", height: "50%", p: "25px", mt: "18%", borderRadius: "20px", display: "flex", flexDirection: "column", backgroundImage: 'url("https://i.ibb.co/vQYVMnK/blue-Sky-Background.jpg")', "&:hover" : { backgroundImage: 'url("https://i.ibb.co/CPkYQ5c/brightblue-Sky-Background.jpg")' , filter: "drop-shadow(0 0 3rem white)" }}}>
             <Typography align="center" variant="myVariant" sx={{ fontSize: "40px", mb: "3px", fontWeight: "bold" }}>{name}</Typography>
             <Typography align="center" variant="myVariant" sx={{ fontSize: "17px", mb: "4px", textTransform: "uppercase" }}>({symbol})</Typography>
             <Typography align="center" variant='myVariant' sx={{ fontSize: "30px", mb: "-3px" }}>#{market_cap_rank} </Typography>
             <img style={{ margin: "10px" }} src={image} />
             <span style={{ marginBottom:"3px" }}>
-                <Typography variant='myVariant' sx={{ fontSize: "30px", fontWeight: "bold" }}>Price: </Typography>
+                <Typography align="center" variant='myVariant' sx={{ fontSize: "30px", fontWeight: "bold" }}>Price: </Typography>
                 &nbsp;
-                <Typography variant='myVariant' sx={{ fontSize: "25px", }}> ${numberWithCommas(current_price.toString().slice(0, 5))}</Typography>
+                <Typography align="center" variant='myVariant' sx={{ fontSize: "25px", }}> ${numberWithCommas(current_price.toString().slice(0, 5))}</Typography>
             </span>
             <span style={{marginBottom:"3px" }}>
                 <Typography variant='myVariant' sx={{ fontSize: "30px", fontWeight: "bold" }}>24h%:</Typography>
