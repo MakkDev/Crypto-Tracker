@@ -6,19 +6,37 @@ import { createTheme, ThemeProvider } from '@mui/material';
 
 
 const theme = createTheme({
+  components: {
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          borderRadius: "20px",
+          backgroundColor: "#abb4db",
+          borderColor: "blue",
+        }
+      }
+    },
+    MuiInputLabel:{
+      styleOverrides:{ 
+        root:{
+          color:"white",
+        }
+      }
+    }
+  },
   palette: {
-    backgroundColor: {default: "#14161a"},
+    backgroundColor: { default: "#14161a" },
     minHeight: "100vh"
   },
   typography: {
     myVariant: {
       color: "#cccccc"
     },
-    lightVariant:{
-      color:"#abb4db",
-      fontSize:"18px",
-      fontWeight:"600",
-      fontFamily:"montserrat"
+    lightVariant: {
+      color: "#abb4db",
+      fontSize: "18px",
+      fontWeight: "600",
+      fontFamily: "montserrat"
     }
   },
 });
