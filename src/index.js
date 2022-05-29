@@ -25,8 +25,9 @@ const theme = createTheme({
     }
   },
   palette: {
-    backgroundColor: { default: "#14161a" },
-    minHeight: "100vh"
+    neutral:{
+      main:"#7b3a8a"
+    }
   },
   typography: {
     myVariant: {
