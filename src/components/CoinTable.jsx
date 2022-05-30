@@ -50,7 +50,7 @@ export default function CoinTable() {
                     {handleSearch().slice((page - 1) * 10, (page - 1) * 10 + 10).map((coin) => (
                         <TableRow onClick={()=> navigate(`/tokenInfo/${coin.id}`)} sx={{display:"flex", justifyContent:"center", width:"100%", "&:hover": {cursor:"pointer"}}}>
                             <TableCell sx={{display:"flex", alignItems:"center", flex: "1.55"}} >
-                                <img style={{ width: "25%", marginRight:"2%", marginLeft:"-5px", filter: "drop-shadow(0 0 0.1rem black)" }} src={coin.image} />
+                                <img style={{ width: "25%", marginRight:"4%", marginLeft:"-5px", filter: "drop-shadow(0 0 0.1rem black)" }} src={coin.image} />
                                 <span>
                                     <Typography sx={{textTransform:"uppercase", fontFamily:"montserrat", fontWeight:"600", fontSize: "22px"}}> {coin.symbol} </Typography>
                                     <Typography sx={{fontFamily:"montserrat", fontWeight:"400", fontSize: "20px"}}> {coin.name} </Typography>
