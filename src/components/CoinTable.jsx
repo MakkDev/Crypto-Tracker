@@ -40,7 +40,7 @@ export default function CoinTable() {
                 <TableHead sx={{ display: "flex", justifyContent: "center", alignItems: "center", }}>
                     <TableRow sx={{ display: "flex", borderRadius: "10px", backgroundColor: "#7b3a8a", width:{xs: "90%",sm: "90%", md: "100%", lg: "100%", xl: "100%" }, p:"1%", alignItems:"center" }}>
                         <TableCell sx={{ borderBottom: "none", flex: "1.55", color: "#abb4db", fontSize: {xs: "100%",sm: "100%", md: "130%", lg: "130%", xl: "130%" }, fontWeight: "600", fontFamily: "montserrat" }}>  Coin</TableCell>
-                        <TableCell align="" sx={{display: {xs:"none", sm:"none", lg:"unset", xl:"unset"}, borderBottom: "none", flex: "1.5", color: "#abb4db", fontSize: {xs: "80%",sm: "100%", md: "130%", lg: "130%", xl: "130%%" }, fontWeight: "600", fontFamily: "montserrat" }}> Rank</TableCell>
+                        <TableCell align="" sx={{display: {xs:"none", sm:"unset", lg:"unset", xl:"unset"}, borderBottom: "none", flex: "1.5", color: "#abb4db", fontSize: {xs: "80%",sm: "100%", md: "130%", lg: "130%", xl: "130%%" }, fontWeight: "600", fontFamily: "montserrat" }}> Rank</TableCell>
                         <TableCell align="center" sx={{ borderBottom: "none", flex: "1.3", color: "#abb4db", fontSize: {xs: "100%",sm: "100%", md: "130%", lg: "130%", xl: "130%" }, fontWeight: "600", fontFamily: "montserrat" }}> Price</TableCell>
                         <TableCell align="center" sx={{ borderBottom: "none", flex: "1.3", color: "#abb4db", fontSize: {xs: "100%",sm: "100%", md: "130%", lg: "130%", xl: "130%" }, fontWeight: "600", fontFamily: "montserrat" }}> 24h % Change</TableCell>
                         <TableCell align="center" sx={{ borderBottom: "none", flex: "1.3", color: "#abb4db", fontSize: {xs: "100%",sm: "100%", md: "130%", lg: "130%", xl: "130%" }, fontWeight: "600", fontFamily: "montserrat" }}> Market Cap</TableCell>
@@ -56,7 +56,7 @@ export default function CoinTable() {
                                     <Typography sx={{fontFamily:"montserrat", fontWeight:"400", fontSize: {xs: "90%",sm: "90%", md: "110%", lg: "110%", xl: "110%" }}}> {coin.name} </Typography>
                                 </span>
                             </TableCell>
-                            <TableCell  align='left' sx={{display: {xs:"none", sm:"none", lg:"unset", xl:"unset"}, flex: "1.5", fontFamily:"montserrat", fontWeight:"600", fontSize: {xs: "100%",sm: "100%", md: "130%", lg: "130%", xl: "130%" }}} >
+                            <TableCell  align='left' sx={{display: {xs:"none", sm:"unset", lg:"unset", xl:"unset"}, flex: "1.5", fontFamily:"montserrat", fontWeight:"600", fontSize: {xs: "100%",sm: "100%", md: "130%", lg: "130%", xl: "130%" }}} >
                                 #{coin.market_cap_rank}</TableCell>
                             <TableCell align="center" sx={{flex: "1.3", fontFamily:"montserrat", fontWeight:"600", fontSize:  {xs: "80%",sm: "80%", md: "100%", lg: "100%", xl: "100%" }}}> ${ coin.current_price < 1 ? coin.current_price.toString().slice(0,-3) :
                                 `${numberWithCommas(coin.current_price)}` } </TableCell>
