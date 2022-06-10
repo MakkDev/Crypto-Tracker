@@ -2,6 +2,8 @@ import { AppBar, Box, Button, Container, IconButton, MenuItem, Paper, styled, To
 import React, { useEffect, useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useParams } from 'react-router-dom';
+import brightblueSkyBackground from '../images/brightblueSkyBackground.jpg';
+import blueSkyBackground from '../images/blueSkyBackground.jpg';
 
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -40,7 +42,7 @@ export default function SingleToken() {
           <Button href="/" sx={{fontSize:"larger", mb:"-10%", mt:"5%",backgroundColor:"#7b3a8a", color:"#abb4db", borderColor:"#7b3a8a", fontFamily: "Montserrat", fontWeight: "400", '&:hover': {
           backgroundColor:"#abb4db", color:"#7b3a8a", borderColor:"#7b3a8a"}}} variant="contained"> 
           Back To The HomePage? </Button>
-          <Paper align="center" sx={{  alignItems: "center", justifyContent: "center", width: "40%", height: "50%", p: "25px", mt: "18%", borderRadius: "20px", display: "flex", flexDirection: "column", backgroundImage: 'url("https://i.ibb.co/vQYVMnK/blue-Sky-Background.jpg")', "&:hover" : { backgroundImage: 'url("https://i.ibb.co/CPkYQ5c/brightblue-Sky-Background.jpg")' , filter: "drop-shadow(0 0 3rem white)" }}}>
+          <Paper align="center" sx={{  alignItems: "center", justifyContent: "center", width: "40%", height: "50%", p: "25px", mt: "18%", borderRadius: "20px", display: "flex", flexDirection: "column", backgroundImage: `url(${blueSkyBackground})`, "&:hover" : { backgroundImage: `url(${brightblueSkyBackground})` , filter: "drop-shadow(0 0 3rem white)" }}}>
             <Typography align="center" variant="myVariant" sx={{ fontSize: "40px", mb: "3px", fontWeight: "bold" }}>{name}</Typography>
             <Typography align="center" variant="myVariant" sx={{ fontSize: "17px", mb: "4px", textTransform: "uppercase" }}>({symbol})</Typography>
             <Typography align="center" variant='myVariant' sx={{ fontSize: "30px", mb: "-3px" }}>#{market_cap_rank} </Typography>
