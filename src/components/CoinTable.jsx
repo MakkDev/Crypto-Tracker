@@ -1,9 +1,9 @@
-import {Container, Box, CardMedia, Pagination, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, TextField } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import {Button, Container, Box, CardMedia, Pagination, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, TextField } from '@mui/material'
+import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { numberWithCommas } from './SingleToken';
 
-export default function CoinTable() {
+export default function CoinTable(props) {
 
     const axios = require("axios");
     let navigate = useNavigate();
@@ -12,6 +12,8 @@ export default function CoinTable() {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState("")
+
+    const myRef = useRef(null);
 
     async function getCoins() {
         const { data } = await axios.get(
@@ -31,8 +33,11 @@ export default function CoinTable() {
     );
   };
 
+  const executeScroll = () => myRef.current.scrollIntoView({behavior: 'smooth', block: 'start'});
+
     return (
         <Container sx={{p:"0px", }}>
+            <Button onClick={executeScroll} variant='contained'>Hello</Button>
     <Typography align="center" sx={{mb:"15px", display:"flex", color: "#7b3a8a", fontSize: "40px", fontWeight: "900", fontFamily: "Montserrat", justifyContent:'center', '&:hover': {cursor: "pointer"} }}>Cryptocurrency Prices by Market Cap</Typography>
             <TextField onChange={(e) => setSearch(e.target.value)} variant="outlined" sx={{width:"100%", mb:"20px"}} label="Search For Your Favorite Cryptocurrency!"/> 
         <TableContainer sx={{ justifyContent: "center", alignItems: "center", display: "flex", }}>
@@ -69,7 +74,7 @@ export default function CoinTable() {
                 </TableBody>
             </Table>
         </TableContainer>
-        <Pagination onChange={(_, value) => {setPage(value); window.scroll(0, 450);}}
+        <Pagination ref={props.refProp} onChange={(_, value) => {setPage(value); window.scroll(0, 450);}}
          color="secondary" sx={{ display:"flex", justifyContent:"center",alignItems:"center", m:"2%"}} count={(handleSearch()?.length / 10).toFixed(0)}
         />
         </Container>
