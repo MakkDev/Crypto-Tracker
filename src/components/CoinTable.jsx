@@ -37,7 +37,6 @@ export default function CoinTable(props) {
 
     return (
         <Container sx={{p:"0px", }}>
-            <Button onClick={executeScroll} variant='contained'>Hello</Button>
     <Typography align="center" sx={{mb:"15px", display:"flex", color: "#7b3a8a", fontSize: "40px", fontWeight: "900", fontFamily: "Montserrat", justifyContent:'center', '&:hover': {cursor: "pointer"} }}>Cryptocurrency Prices by Market Cap</Typography>
             <TextField onChange={(e) => setSearch(e.target.value)} variant="outlined" sx={{width:"100%", mb:"20px"}} label="Search For Your Favorite Cryptocurrency!"/> 
         <TableContainer sx={{ justifyContent: "center", alignItems: "center", display: "flex", }}>
